@@ -6,8 +6,6 @@ import {IndexComponent} from './index/index.component';
 const routes: Routes = [
   {
     path: 'index', component: IndexComponent, pathMatch: 'full'
-  }, {
-    path: '**', redirectTo: '/index'
   }
 ];
 

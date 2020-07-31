@@ -3,6 +3,12 @@ const SQRT_3 = Math.pow(3, 0.5);
 let triangle, D, mousePos, position;
 const count = 50;
 
+const mouseMoveFunction = event => {
+  mousePos.x = event.x;
+  mousePos.y = event.y;
+  triangle.rotate();
+}
+
 const moveStars = function(vector) {
   // Run through the active layer's children list and change
   // the position of the placed symbols:
@@ -52,7 +58,13 @@ const buildStars = function() {
 const Triangle = function(a) {
   this.build(a);
 };
-const refresh = () => {
+
+export const refreshPaperPlane = () => {
+  if(!document.getElementById('paper-plane-space')) {
+    if(project) project.clear();
+    window.removeEventListener('mousemove', mouseMoveFunction)
+    return;
+  }
   paper.setup('paper-plane-space');
 
   D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
@@ -74,16 +86,19 @@ const refresh = () => {
     moveStars(vector.multiply(3));
     triangle.update();
   };
+  window.addEventListener('mousemove', mouseMoveFunction);
 }
-window.onload = function() {
-  refresh();
-};
+// window.onload = function() {
+//   if(project) project.clear();
+//   refreshPaperPlane();
+// };
+
 // ---------------------------------------------------
 //  Helpers
 // ---------------------------------------------------
 window.onresize = function() {
-  project.clear();
-  refresh();
+  if(project) project.clear();
+  refreshPaperPlane();
   // D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
   // // Draw the BG
   // const background = new Path.Rectangle(view.bounds);
@@ -148,11 +163,6 @@ Triangle.prototype.rotate = function() {
 // ---------------------------------------------------
 //  Stars (from paperjs.org examples section)
 // ---------------------------------------------------
-window.onmousemove = function(event) {
-  mousePos.x = event.x;
-  mousePos.y = event.y;
-  triangle.rotate();
-};
 
 
 const keepInView = function (item) {

@@ -1,11 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Observable} from 'rxjs';
-import {map, shareReplay} from 'rxjs/operators';
-// import * as paper from 'paper/dist/paper-full.min.js';
-import {PaperScope, Path, Point} from 'paper';
 
-import '../../assets/js/paper-plane';
+import * as paperPlane from '../../assets/js/paper-plane';
+import {AppService} from '../service/app.service';
 
 
 @Component({
@@ -15,16 +11,11 @@ import '../../assets/js/paper-plane';
 })
 export class IndexComponent implements OnInit {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
-
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(public appService: AppService) {
   }
 
   ngOnInit(): void {
+    paperPlane.refreshPaperPlane();
   }
 
 

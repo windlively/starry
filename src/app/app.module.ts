@@ -7,12 +7,12 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { zh_CN } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import {NzGridModule, NzIconModule} from 'ng-zorro-antd';
+import {NzGridModule, NzIconModule, NzModalModule, NzUploadModule} from 'ng-zorro-antd';
 import {AppRoutingModule} from './app-routing.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -25,6 +25,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import {AppService} from './service/app.service';
 import {MatRippleModule} from '@angular/material/core';
+import { ImageRecognitionComponent } from './app-context/image-recognition/image-recognition.component';
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
+import { LoadingViewComponent } from './loading-view/loading-view.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {AppHttpInterceptor} from './interceptor/app-http.interceptor';
 
 registerLocaleData(zh);
 
@@ -33,6 +38,8 @@ registerLocaleData(zh);
     AppComponent,
     IndexComponent,
     AppContextComponent,
+    ImageRecognitionComponent,
+    LoadingViewComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -52,9 +59,24 @@ registerLocaleData(zh);
     MatGridListModule,
     MatMenuModule,
     MatRippleModule,
-    NzIconModule
+    NzIconModule,
+    NzUploadModule,
+    MatSnackBarModule,
+    NzModalModule,
+    MatProgressBarModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }, AppService],
+  providers: [
+    {
+      provide: NZ_I18N, useValue: zh_CN
+    },
+    AppService,
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

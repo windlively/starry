@@ -1,22 +1,20 @@
 <mat-sidenav-container class="sidenav-container" hasBackdrop="true">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-               [mode]="(isHandset$ | async) ? 'over' : 'side'"
-               [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+  <mat-sidenav #drawer class="sidenav" mode="push">
+    <mat-toolbar>APPLICATIONS</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item *ngFor="let app of appService.appMetaInfo" href="#"><i nz-icon
-                                                                              [nzType]="app.icon"></i>&nbsp;{{app.displayName}}
+      <a mat-list-item *ngFor="let app of appService.appMetaInfo" [routerLink]="app.path">
+        <i nz-icon [nzType]="app.icon"></i>&nbsp;&nbsp;{{app.displayName}}
       </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar nz-row nzJustify="start" nzAlign="middle">
-      <a nz-icon nzType="bars" nz-col nzSpan="2" (click)="drawer.toggle()" mat-button style="font-size: 24px;height: 100%;width: 100%;display: inline-flex;justify-content: center; align-items: center;">
+      <a nz-icon nzType="bars" nz-col nzSpan="2" (click)="drawer.toggle()" mat-button
+         style="font-size: 24px;height: 100%;width: 100%;display: inline-flex;justify-content: center; align-items: center;">
       </a>
       <h2 nz-col nzSpan="12">APP标题</h2>
     </mat-toolbar>
 
-    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

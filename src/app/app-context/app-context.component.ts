@@ -19,6 +19,7 @@ export class AppContextComponent {
 
   constructor(private breakpointObserver: BreakpointObserver,
               public appService: AppService) {
+
   }
 
 }

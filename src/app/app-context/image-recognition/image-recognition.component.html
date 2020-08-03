@@ -1,0 +1,23 @@
+<nz-row>
+  <nz-row nzJustify="center" style="width: 100%; padding: 20px 0">
+    <div>
+      <nz-upload
+        nzAction="/starry"
+        nzListType="picture-card"
+        [(nzFileList)]="fileList"
+        [nzShowButton]="fileList.length === 0"
+        nzLimit="1"
+        [nzCustomRequest]=""
+        [nzPreview]="handlePreview">
+        <i nz-icon nzType="plus"></i>
+        <div class="ant-upload-text">Upload</div>
+      </nz-upload>
+      <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
+                (nzOnCancel)="previewVisible = false">
+        <ng-template #modalContent>
+          <img [src]="previewImage" [ngStyle]="{ width: '100%' }"/>
+        </ng-template>
+      </nz-modal>
+    </div>
+  </nz-row>
+</nz-row>

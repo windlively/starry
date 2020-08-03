@@ -8,12 +8,12 @@
     <nz-row style="height: 80px;" nzAlign="middle" nzJustify="center">
       <h1 style="font-weight: bolder; font-size: 36px; color: aliceblue">Tooooooools</h1>
     </nz-row>
-    <div style="height: 30%">
+    <div style="height: 20vh">
 
     </div>
     <nz-row nzGutter="16" nzAlign="middle" nzJustify='start' style="padding: 0 20px">
       <nz-col *ngFor="let app of appService.appMetaInfo;" nzSm="24" nzXs="24" nzMd="12" nzLg="12" nzXl="8" style="height: 100px; margin: 10px 0">
-        <mat-card matRipple style="width: 100%; height: 100%; background: #ffffff89; cursor: pointer" [routerLink]="'/app-context'">
+        <mat-card matRipple style="width: 100%; height: 100%; background: #ffffff89; cursor: pointer" [routerLink]="'/app-context/' + app.path">
           <mat-card-subtitle style="font-size: 24px">
             <i nz-icon [nzType]="app.icon" nzTheme="twotone"></i>&nbsp;&nbsp;<span>{{app.displayName}}</span>
           </mat-card-subtitle>

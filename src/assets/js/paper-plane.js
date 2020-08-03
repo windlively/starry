@@ -9,7 +9,7 @@ const mouseMoveFunction = event => {
   triangle.rotate();
 }
 
-const moveStars = function(vector) {
+const moveStars = function (vector) {
   // Run through the active layer's children list and change
   // the position of the placed symbols:
   const layer = project.activeLayer;
@@ -17,11 +17,11 @@ const moveStars = function(vector) {
     const item = layer.children[i];
     const size = item.bounds.size;
     const length = vector.length / 10 * size.width / 10;
-    item.position = item.position.add( vector.normalize(length).add(item.data.vector));
+    item.position = item.position.add(vector.normalize(length).add(item.data.vector));
     keepInView(item);
   }
 };
-const buildStars = function() {
+const buildStars = function () {
   // Create a symbol, which we will use to place instances of later:
   const path = new Path.Circle({
     center: [0, 0],
@@ -41,7 +41,7 @@ const buildStars = function() {
     placed.data = {
       vector: new Point({
         angle: Math.random() * 360,
-        length : (i / count) * Math.random() / 5
+        length: (i / count) * Math.random() / 5
       })
     };
   }
@@ -55,13 +55,13 @@ const buildStars = function() {
 // ---------------------------------------------------
 //  Triangle
 // ---------------------------------------------------
-const Triangle = function(a) {
+const Triangle = function (a) {
   this.build(a);
 };
 
 export const refreshPaperPlane = () => {
-  if(!document.getElementById('paper-plane-space')) {
-    if(project) project.clear();
+  if (!document.getElementById('paper-plane-space')) {
+    if (project) project.clear();
     window.removeEventListener('mousemove', mouseMoveFunction)
     return;
   }
@@ -80,8 +80,8 @@ export const refreshPaperPlane = () => {
 
   paper.view.draw();
 
-  paper.view.onFrame = function(event) {
-    position = position.add( (mousePos.subtract(position).divide(10) ) );
+  paper.view.onFrame = function (event) {
+    position = position.add((mousePos.subtract(position).divide(10)));
     const vector = (view.center.subtract(position)).divide(10);
     moveStars(vector.multiply(3));
     triangle.update();
@@ -96,8 +96,8 @@ export const refreshPaperPlane = () => {
 // ---------------------------------------------------
 //  Helpers
 // ---------------------------------------------------
-window.onresize = function() {
-  if(project) project.clear();
+window.onresize = function () {
+  if (project) project.clear();
   refreshPaperPlane();
   // D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
   // // Draw the BG
@@ -115,7 +115,7 @@ const map = function (n, start1, stop1, start2, stop2) {
   return (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
 };
 
-Triangle.prototype.build = function(a) {
+Triangle.prototype.build = function (a) {
   // The points of the triangle
   const segments = [new paper.Point(0, -a / SQRT_3),
     new paper.Point(-a / 2, a * 0.5 / SQRT_3),
@@ -142,7 +142,7 @@ Triangle.prototype.build = function(a) {
   });
 };
 
-Triangle.prototype.update = function() {
+Triangle.prototype.update = function () {
   this.flame.segments[0].point.x = random(this.flame.segments[1].point.x, this.flame.segments[2].point.x);
 
   const dist = mousePos.subtract(paper.view.center).length;
@@ -150,12 +150,12 @@ Triangle.prototype.update = function() {
   const spread = map(dist, 0, D / 2, 10, 30);
 
   this.flame.segments[0].point = paper.view.center.subtract(new Point({
-    length: map(dist, 0, D/2, 2*this.flameSize/3, this.flameSize),
+    length: map(dist, 0, D / 2, 2 * this.flameSize / 3, this.flameSize),
     angle: random(angle - spread, angle + spread)
   }));
 };
 
-Triangle.prototype.rotate = function() {
+Triangle.prototype.rotate = function () {
   const angle = paper.view.center.subtract(mousePos).angle - paper.view.center.subtract(this.ship.segments[0].point).angle;
 
   this.group.rotate(angle, paper.view.center);

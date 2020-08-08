@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {RouterModule} from '@angular/router';
@@ -12,7 +12,6 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { zh_CN } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import {NzGridModule, NzIconModule, NzModalModule, NzUploadModule} from 'ng-zorro-antd';
 import {AppRoutingModule} from './app-routing.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -30,6 +29,12 @@ import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/materia
 import { LoadingViewComponent } from './loading-view/loading-view.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {AppHttpInterceptor} from './interceptor/app-http.interceptor';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import { GeneralBasicOcrComponent } from './app-context/image-recognition/general-basic-ocr/general-basic-ocr.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatTabsModule} from "@angular/material/tabs";
+import {NzGridModule, NzIconModule, NzModalModule, NzTabsModule, NzUploadModule} from "ng-zorro-antd";
 
 registerLocaleData(zh);
 
@@ -40,6 +45,7 @@ registerLocaleData(zh);
     AppContextComponent,
     ImageRecognitionComponent,
     LoadingViewComponent,
+    GeneralBasicOcrComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -60,10 +66,15 @@ registerLocaleData(zh);
     MatMenuModule,
     MatRippleModule,
     NzIconModule,
-    NzUploadModule,
     MatSnackBarModule,
     NzModalModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NzUploadModule,
+    MatExpansionModule,
+    NzTabsModule,
+    MatTabsModule,
   ],
   providers: [
     {

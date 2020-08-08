@@ -21,8 +21,8 @@ export class AppService {
     },
     {name: 'app1', displayName: '应用01', path: '#', icon: 'star', description: '测试应用1'},
     {name: 'app2', displayName: '应用02', path: '#', icon: 'star', description: '测试应用1'},
-    {name: 'app3', displayName: '应用03', path: '#', icon: 'star', description: '测试应用1'},
-    {name: 'app4', displayName: '应用04', path: '#', icon: 'star', description: '测试应用1'}
+    // {name: 'app3', displayName: '应用03', path: '#', icon: 'star', description: '测试应用1'},
+    // {name: 'app4', displayName: '应用04', path: '#', icon: 'star', description: '测试应用1'}
   ];
 
   public showSnackBar = (msg: string, duration?: number, action?: string) =>

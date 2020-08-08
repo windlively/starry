@@ -28,16 +28,15 @@ export class AppHttpInterceptor implements HttpInterceptor {
     // if (req.url.includes('/monitor')) {
     //   return next.handle(req);
     // }
-
     setTimeout(() => this.appService.showLoadingBar = true);
     this.processingHttpCount ++;
     return next.handle(req.clone({
-      // url: req.url.replace('/starry', '/starry')
+      url: '/starry' + (req.url.startsWith('/') ? req.url : '/' + req.url)
     }))
       .pipe(
         debounceTime(1000),
-        // 失败时重试3次
-        retry(3),
+        // 失败时重试2次
+        retry(2),
         mergeMap((event: any) => {
           if (event instanceof HttpResponseBase) {
             // HTTP返回代码正常
@@ -57,11 +56,11 @@ export class AppHttpInterceptor implements HttpInterceptor {
           return of(event);
         }), catchError((err: HttpErrorResponse) => {
           this.appService.showSnackBar(err.message, 4000);
+          console.error(err.message)
           return throwError(err);
         }), finalize(() => {
           setTimeout(() => --this.processingHttpCount === 0 ?
             this.appService.showLoadingBar = false : this.appService.showLoadingBar = true, 500);
         }));
-
   }
 }

@@ -1,24 +1,12 @@
-<nz-row>
-  <nz-row nzJustify="center" style="width: 100%; padding: 20px 0">
-    <div>
-      <nz-upload
-        nzAction="/starry"
-        nzListType="picture-card"
-        [(nzFileList)]="fileList"
-        [nzShowButton]="fileList.length === 0"
-        nzLimit="1"
-        [nzBeforeUpload]="beforeUpload"
-        [nzCustomRequest]="generalBasicOCR"
-        [nzPreview]="handlePreview">
-        <i nz-icon nzType="plus"></i>
-        <div class="ant-upload-text">Upload</div>
-      </nz-upload>
-      <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
-                (nzOnCancel)="previewVisible = false">
-        <ng-template #modalContent>
-          <img [src]="previewImage" [ngStyle]="{ width: '100%' }"/>
-        </ng-template>
-      </nz-modal>
-    </div>
-  </nz-row>
-</nz-row>
+<mat-tab-group autofocus dynamicHeight="true">
+  <mat-tab label="印刷体识别">
+    <ng-template matTabContent>
+      <app-general-basic-ocr></app-general-basic-ocr>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="手写体识别">
+    <ng-template matTabContent>
+      <app-general-basic-ocr></app-general-basic-ocr>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

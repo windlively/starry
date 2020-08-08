@@ -1,0 +1,33 @@
+<nz-row>
+  <nz-row nzJustify="space-around" style="width: 100%;" nzGutter="10">
+    <div nz-col nzSpan="24" ><h3 style="color: darkseagreen">上传图片文件开始识别</h3></div>
+    <div nz-col nzMd="12" nzXs="24" style="display: inline-flex;justify-content: center; padding: 20px 0; align-items: center">
+      <div>
+        <nz-upload
+          nzListType="picture-card"
+          [(nzFileList)]="fileList"
+          [nzShowButton]="fileList.length === 0"
+          nzLimit="1"
+          [nzBeforeUpload]="beforeUpload"
+          [nzCustomRequest]="generalBasicOCR"
+          [nzPreview]="handlePreview" nzAccept="image/*">
+          <i nz-icon nzType="plus"></i>
+          <div class="ant-upload-text">Upload</div>
+        </nz-upload>
+<!--        <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"-->
+<!--                  (nzOnCancel)="previewVisible = false">-->
+<!--          <ng-template #modalContent>-->
+<!--            <img [src]="previewImage" [ngStyle]="{ width: '100%' }" [alt]="imageAlt"/>-->
+<!--          </ng-template>-->
+<!--        </nz-modal>-->
+      </div>
+    </div>
+    <div nz-col nzMd="12" nzXs="24" style="padding: 10px 0">
+      <mat-form-field style="width: 100%">
+        <mat-label>识别结果</mat-label>
+        <textarea matInput placeholder="" [(ngModel)]="recognitionResult" style="min-height: 300px"></textarea>
+      </mat-form-field>
+    </div>
+  </nz-row>
+
+</nz-row>

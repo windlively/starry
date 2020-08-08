@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {IndexComponent} from './index/index.component';
 import {AppContextComponent} from './app-context/app-context.component';
 import {ImageRecognitionComponent} from './app-context/image-recognition/image-recognition.component';
+import {GeneralBasicOcrComponent} from "./app-context/image-recognition/general-basic-ocr/general-basic-ocr.component";
 
 
 const routes: Routes = [

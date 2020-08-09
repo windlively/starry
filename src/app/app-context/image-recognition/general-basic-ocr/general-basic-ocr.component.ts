@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AppService} from "../../../service/app.service";
 import {HttpClient, HttpEvent, HttpEventType, HttpRequest, HttpResponse} from "@angular/common/http";
 import { UploadFile, UploadXHRArgs} from "ng-zorro-antd";
@@ -15,6 +15,9 @@ export class GeneralBasicOcrComponent implements OnInit {
   constructor(public appService: AppService,
               public httpClient: HttpClient) {
   }
+
+  @Input('ocr-type')
+  ocrType: string;
 
   fileList: UploadFile[] = [];
 

@@ -14,12 +14,12 @@
           <i nz-icon nzType="plus"></i>
           <div class="ant-upload-text">Upload</div>
         </nz-upload>
-<!--        <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"-->
-<!--                  (nzOnCancel)="previewVisible = false">-->
-<!--          <ng-template #modalContent>-->
-<!--            <img [src]="previewImage" [ngStyle]="{ width: '100%' }" [alt]="imageAlt"/>-->
-<!--          </ng-template>-->
-<!--        </nz-modal>-->
+        <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
+                  (nzOnCancel)="previewVisible = false">
+          <ng-template #modalContent>
+            <img [src]="previewImage" [ngStyle]="{ width: '100%' }" [alt]="imageAlt"/>
+          </ng-template>
+        </nz-modal>
       </div>
     </div>
     <div nz-col nzMd="12" nzXs="24" style="padding: 10px 0">

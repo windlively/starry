@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {Observable, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class AppService {
 
   public showLoadingBar = false;
+
+  public subAppChange = new Subject();
 
   constructor(public snackBar: MatSnackBar) {
   }
@@ -31,6 +34,8 @@ export class AppService {
       horizontalPosition: 'right',
       verticalPosition: 'top'
     })
+
+
 
 }
 

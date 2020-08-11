@@ -35,6 +35,7 @@ import { GeneralBasicOcrComponent } from './app-context/image-recognition/genera
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatTabsModule} from "@angular/material/tabs";
 import {NzGridModule, NzIconModule, NzModalModule, NzTabsModule, NzUploadModule} from "ng-zorro-antd";
+import {MatRadioModule} from "@angular/material/radio";
 
 registerLocaleData(zh);
 
@@ -47,35 +48,36 @@ registerLocaleData(zh);
     LoadingViewComponent,
     GeneralBasicOcrComponent,
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatListModule,
-    MatToolbarModule,
-    RouterModule,
-    FormsModule,
-    HttpClientModule,
-    NzGridModule,
-    MatCardModule,
-    MatButtonModule,
-    LayoutModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatGridListModule,
-    MatMenuModule,
-    MatRippleModule,
-    NzIconModule,
-    MatSnackBarModule,
-    NzModalModule,
-    MatProgressBarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    NzUploadModule,
-    MatExpansionModule,
-    NzTabsModule,
-    MatTabsModule,
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatListModule,
+        MatToolbarModule,
+        RouterModule,
+        FormsModule,
+        HttpClientModule,
+        NzGridModule,
+        MatCardModule,
+        MatButtonModule,
+        LayoutModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatGridListModule,
+        MatMenuModule,
+        MatRippleModule,
+        NzIconModule,
+        MatSnackBarModule,
+        NzModalModule,
+        MatProgressBarModule,
+        MatFormFieldModule,
+        MatInputModule,
+        NzUploadModule,
+        MatExpansionModule,
+        NzTabsModule,
+        MatTabsModule,
+        MatRadioModule,
+    ],
   providers: [
     {
       provide: NZ_I18N, useValue: zh_CN

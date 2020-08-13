@@ -1,5 +1,5 @@
 import {HttpClient, HttpEvent, HttpEventType, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { UploadFile, UploadXHRArgs} from 'ng-zorro-antd';
 import {Observable, Observer} from 'rxjs';
 import {AppService} from '../../../service/app.service';
@@ -10,7 +10,7 @@ import {getBase64} from '../image-recognition.component';
   templateUrl: './general-basic-ocr.component.html',
   styleUrls: ['./general-basic-ocr.component.css'],
 })
-export class GeneralBasicOcrComponent implements OnInit {
+export class GeneralBasicOcrComponent implements OnInit , OnDestroy{
 
   constructor(public appService: AppService,
               public httpClient: HttpClient) {
@@ -54,13 +54,13 @@ export class GeneralBasicOcrComponent implements OnInit {
         observer.complete();
         return;
       }
-      const isLt2M = file.size! / 1024 / 1024 < 5;
-      if (!isLt2M) {
+      const isLt5M = file.size! / 1024 / 1024 < 5;
+      if (!isLt5M) {
         this.appService.showSnackBar('Image must smaller than 5MB!');
         observer.complete();
         return;
       }
-      observer.next(isImage && isLt2M);
+      observer.next(isImage && isLt5M);
       observer.complete();
     });
   }
@@ -73,11 +73,12 @@ export class GeneralBasicOcrComponent implements OnInit {
 
     getBase64(item.file as any).then((base64Code) => {
       const formData = new FormData();
-      formData.append('imageInfo', String(base64Code));
+      formData.append('image', String(base64Code));
       // return this.httpClient.post('/starry/ocr/general-basic', formData, {reportProgress: true}).subscribe(data => {
       //   console.log(data);
       // });
-      const req = new HttpRequest('POST', '/ocr/general-basic', formData, {
+      const url = '/ocr/general-' + this.ocrType
+      const req = new HttpRequest('POST', url, formData, {
         reportProgress: true,
         withCredentials: true,
       });
@@ -117,9 +118,7 @@ export class GeneralBasicOcrComponent implements OnInit {
       .getUserMedia(constraints)
       .then(mediaStream => {
         this.mediaStream = mediaStream;
-
-        /* var video = document.querySelector('video'); */
-        var video: any = document.getElementById('video');
+        const video: any = document.getElementById('video');
         video.srcObject = this.mediaStream;
         video.onloadedmetadata = function(e) {
           video.play();
@@ -131,12 +130,12 @@ export class GeneralBasicOcrComponent implements OnInit {
   }
   avatarUrl: any;
   /**关闭摄像头 */
-  closeCamera() {
+  closeCamera = () => {
     this.mediaStream.getTracks().forEach(track => track.stop());
   }
 
   /**照相 */
-  takepicture() {
+  takePicture = () => {
     var canvas = document.querySelector('canvas');
     var video = document.querySelector('video');
     var context = canvas.getContext('2d');
@@ -155,9 +154,12 @@ export class GeneralBasicOcrComponent implements OnInit {
     var data = canvas.toDataURL('image/png');
     this.avatarUrl = data;
   }
+
+  ngOnDestroy(): void {
+    if(this.mediaStream) {
+      this.closeCamera();
+    }
+
+  }
 }
 
-enum ImageUploadType {
-  FILE,
-  CAMERA
-}

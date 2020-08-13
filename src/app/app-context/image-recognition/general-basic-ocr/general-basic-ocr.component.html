@@ -1,12 +1,13 @@
 <nz-row>
   <nz-row nzJustify="space-around" style="width: 100%;" nzGutter="10">
-    <div nz-col nzSpan="20" nzOffset="1" style="padding: 15px">
-      <mat-radio-group [(ngModel)]="imageUploadMethod">
-        <mat-radio-button [value]="0" checked>上传图片</mat-radio-button>&nbsp;&nbsp;
-        <mat-radio-button [value]="1">拍照</mat-radio-button>
-      </mat-radio-group>
-    </div>
-    <div nz-col nzMd="12" nzXs="24" style="display: inline-flex;justify-content: center; padding: 20px 0; align-items: center">
+<!--    <div nz-col nzSpan="20" nzOffset="1" style="padding: 15px">-->
+<!--      <mat-radio-group [(ngModel)]="imageUploadMethod">-->
+<!--        <mat-radio-button [value]="0" checked>上传图片</mat-radio-button>&nbsp;&nbsp;-->
+<!--        <mat-radio-button [value]="1">拍照</mat-radio-button>-->
+<!--      </mat-radio-group>-->
+<!--    </div>-->
+    <nz-col nzSpan="20" nzOffset="1" style="padding: 15px"><h3>上传图片或拍照开始识别</h3></nz-col>
+    <div nz-col nzMd="12" nzXs="24" style="display: inline-flex;justify-content: center; padding: 20px 0; align-items: center; height: 300px">
 <!--      文件上传-->
       <div *ngIf="imageUploadMethod === 0">
         <nz-upload
@@ -28,9 +29,9 @@
         </nz-modal>
       </div>
 <!--      拍照上传-->
-      <div *ngIf="imageUploadMethod === 1">
-        <button style="width: 100%" mat-button (click)="openCamera()">拍照</button>
-        <video *ngIf="!avatarUrl" id="video" width="360" height="540" autoplay="">视频流不可用.</video>
+      <div *ngIf="imageUploadMethod === 1" nz-row>
+        <button style="width: 100%" mat-button (click)="openCamera()" nz-col="24">打开相机</button>
+        <video *ngIf="!avatarUrl" id="video"  autoplay="" nz-col nzOffset="1" nzSpan="22">视频流不可用.</video>
         <img style="width: 360px;" *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
         <canvas id="canvas" [style.display]="'none'">
         </canvas>

@@ -22,6 +22,13 @@ export class AppService {
       icon: 'picture',
       description: '图片类型识别、文字识别(OCR)'
     },
+    {
+      name: 'image-tools',
+      displayName: '图片工具',
+      path: 'image-tools',
+      icon: 'tool',
+      description: 'Base64转码等'
+    },
     {name: 'app1', displayName: '应用01', path: '#', icon: 'star', description: '测试应用1'},
     {name: 'app2', displayName: '应用02', path: '#', icon: 'star', description: '测试应用1'},
     // {name: 'app3', displayName: '应用03', path: '#', icon: 'star', description: '测试应用1'},

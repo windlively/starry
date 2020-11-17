@@ -7,6 +7,7 @@ describe('AppService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
+    // @ts-ignore
     service = TestBed.inject(AppService);
   });
 

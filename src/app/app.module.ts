@@ -36,6 +36,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatTabsModule} from "@angular/material/tabs";
 import {NzGridModule, NzIconModule, NzModalModule, NzTabsModule, NzUploadModule} from "ng-zorro-antd";
 import {MatRadioModule} from "@angular/material/radio";
+import { ImageToolsComponent } from './app-context/image-tools/image-tools.component';
 
 registerLocaleData(zh);
 
@@ -47,6 +48,7 @@ registerLocaleData(zh);
     ImageRecognitionComponent,
     LoadingViewComponent,
     GeneralBasicOcrComponent,
+    ImageToolsComponent,
   ],
     imports: [
         AppRoutingModule,

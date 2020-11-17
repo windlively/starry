@@ -1,0 +1,38 @@
+<mat-tab-group autofocus dynamicHeight="true">
+  <mat-tab label="Base64转码">
+    <nz-row style="margin: 10px 0">
+      <div nz-col nzSpan="22" nzOffset="1">
+        <nz-upload
+          nzType="drag"
+          [nzMultiple]="false"
+          [nzLimit]="1"
+          nzAccept="image/*"
+          [nzBeforeUpload]="beforeUpload"
+          [nzShowUploadList]="false">
+          <p class="ant-upload-drag-icon">
+            <i nz-icon nzType="inbox"></i>
+          </p>
+          <p class="ant-upload-text">点击或拖拽上传图片</p>
+        </nz-upload>
+      </div>
+    </nz-row>
+    <nz-row style="margin: 10px 0">
+      <nz-col nzSpan="22" nzOffset="1">
+        <mat-form-field style="width: 100%">
+          <mat-label>base64</mat-label>
+          <textarea matInput placeholder="" [(ngModel)]="imageBase64Code" style="min-height: 400px"></textarea>
+        </mat-form-field>
+      </nz-col>
+    </nz-row>
+    <nz-row style="margin: 10px 0">
+      <nz-col nzSpan="22" nzOffset="1">
+        <div>
+          <button mat-button (click)="previewImage()">点击此处预览</button>
+          <div class="image-preview" style="display: flex; justify-content: center">
+            <img [src]=imageBase64CodeSafeUrl alt="" style="max-width: 80%"/>
+          </div>
+        </div>
+      </nz-col>
+    </nz-row>
+  </mat-tab>
+</mat-tab-group>

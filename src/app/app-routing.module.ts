@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {IndexComponent} from './index/index.component';
 import {AppContextComponent} from './app-context/app-context.component';
 import {ImageRecognitionComponent} from './app-context/image-recognition/image-recognition.component';
+import {ImageToolsComponent} from "./app-context/image-tools/image-tools.component";
 
 
 const routes: Routes = [
@@ -13,8 +14,11 @@ const routes: Routes = [
     children: [
       {
         path: 'image-recognition', component: ImageRecognitionComponent
+      },
+      {
+        path: 'image-tools', component: ImageToolsComponent
       }
-    ], redirectTo: 'index'
+    ]
   }, {
     path: '**', redirectTo: 'index'
   }

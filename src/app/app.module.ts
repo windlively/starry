@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { zh_CN } from 'ng-zorro-antd/i18n';
-import { registerLocaleData } from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {AppRoutingModule} from './app-routing.module';
 import {MatCardModule} from '@angular/material/card';
@@ -90,7 +90,8 @@ registerLocaleData(zh);
     },
     {
       provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true
-    }
+    },
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

@@ -5,22 +5,41 @@
   </div>
 
   <div>
-    <nz-row style="height: 80px;" nzAlign="middle" nzJustify="center">
-      <h1 style="font-weight: bolder; font-size: 36px; color: aliceblue">Tooooooools</h1>
+    <nz-row style="height: 80px; margin: 20px 0" nzType="flex" nzAlign="middle" nzJustify="center">
+      <nz-col nzSpan="3">
+        <h1 style="font-weight: bolder; font-size: 36px; color: aliceblue">Starry</h1>
+      </nz-col>
     </nz-row>
     <div style="height: 20vh">
 
     </div>
-    <nz-row nzGutter="16" nzAlign="middle" nzJustify='start' style="padding: 0 20px">
-      <nz-col *ngFor="let app of appService.appMetaInfo;" nzSm="24" nzXs="24" nzMd="12" nzLg="12" nzXl="8" style="height: 100px; margin: 10px 0">
-        <mat-card matRipple style="width: 100%; height: 100%; background: #ffffff89; cursor: pointer" [routerLink]="'/app-context/' + app.path">
-          <mat-card-subtitle style="font-size: 24px">
-            <i nz-icon [nzType]="app.icon" nzTheme="twotone"></i>&nbsp;&nbsp;<span>{{app.displayName}}</span>
-          </mat-card-subtitle>
-          <mat-card-content>
-            {{app.description}}
-          </mat-card-content>
-        </mat-card>
+    <nz-row>
+      <nz-col nzSpan="22" nzOffset="1">
+      <nz-row nzGutter="16" nzType="flex" nzAlign="middle" nzJustify='start' style="padding: 0 20px">
+        <nz-col nzSm="24" nzXs="24" nzMd="12" nzLg="12" nzXl="8" style="height: 120px; margin: 10px 0">
+          <mat-card matRipple style="width: 100%; height: 100%; background: #ffffff89; cursor: pointer"
+                    (click)="appService.openUriInNewTab('/sundry-booklet/index')">
+            <mat-card-subtitle style="font-size: 24px">
+              <i nz-icon [nzType]="'book'" nzTheme="twotone"></i>&nbsp;&nbsp;<span>sundry-booklet</span>
+            </mat-card-subtitle>
+            <mat-card-content>
+              我的笔记
+            </mat-card-content>
+          </mat-card>
+        </nz-col>
+        <nz-col *ngFor="let app of appService.appMetaInfo;" nzSm="24" nzXs="24" nzMd="12" nzLg="12" nzXl="8"
+                style="height: 120px; margin: 10px 0">
+          <mat-card matRipple style="width: 100%; height: 100%; background: #ffffff89; cursor: pointer"
+                    [routerLink]="'/app-context/' + app.path">
+            <mat-card-subtitle style="font-size: 24px">
+              <i nz-icon [nzType]="app.icon" nzTheme="twotone"></i>&nbsp;&nbsp;<span>{{app.displayName}}</span>
+            </mat-card-subtitle>
+            <mat-card-content>
+              {{app.description}}
+            </mat-card-content>
+          </mat-card>
+        </nz-col>
+      </nz-row>
       </nz-col>
     </nz-row>
   </div>

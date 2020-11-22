@@ -43,7 +43,9 @@ export class AppService {
     })
 
 
-
+  openUriInNewTab(s: string) {
+    window.open(s, '_blank')
+  }
 }
 
 export class AppInfo {

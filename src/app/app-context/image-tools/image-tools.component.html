@@ -7,7 +7,7 @@
           [nzMultiple]="false"
           [nzLimit]="1"
           nzAccept="image/*"
-          [nzBeforeUpload]="beforeUpload"
+          [nzBeforeUpload]="beforeUploadWithConvertBase64"
           [nzShowUploadList]="false">
           <p class="ant-upload-drag-icon">
             <i nz-icon nzType="inbox"></i>
@@ -33,6 +33,38 @@
           </div>
         </div>
       </nz-col>
+    </nz-row>
+  </mat-tab>
+  <mat-tab label="图片类型转换">
+    <nz-row style="margin: 10px 0">
+      <div nz-col nzSpan="22" nzOffset="1">
+        <nz-upload
+          nzType="drag"
+          [nzMultiple]="false"
+          [nzLimit]="1"
+          nzAccept="image/*"
+          [nzBeforeUpload]="beforeUploadWithConvertImageType"
+          [nzShowUploadList]="false">
+          <p class="ant-upload-drag-icon">
+            <i nz-icon nzType="inbox"></i>
+          </p>
+          <p class="ant-upload-text">点击或拖拽上传图片</p>
+        </nz-upload>
+        <div *ngIf="waitingConvertFile">文件名: {{waitingConvertFile.name}}</div>
+        <mat-form-field>
+          <mat-select #targetType value="image/png">
+            <mat-option value="image/webp">webp格式</mat-option>
+            <mat-option value="image/jpeg">jpeg格式</mat-option>
+            <mat-option value="image/png">png格式</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-button (click)="convertImageType(targetType.value)">开始转换</button>
+        <p>转换结果：</p>
+        <img [src]="convertTargetImageSrc" style="max-width: 600px" alt=""/>
+      </div>
+    </nz-row>
+    <nz-row>
+
     </nz-row>
   </mat-tab>
 </mat-tab-group>

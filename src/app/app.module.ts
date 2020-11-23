@@ -37,6 +37,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {NzGridModule, NzIconModule, NzModalModule, NzTabsModule, NzUploadModule} from "ng-zorro-antd";
 import {MatRadioModule} from "@angular/material/radio";
 import { ImageToolsComponent } from './app-context/image-tools/image-tools.component';
+import {MatSelectModule} from "@angular/material/select";
 
 registerLocaleData(zh);
 
@@ -48,38 +49,39 @@ registerLocaleData(zh);
     ImageRecognitionComponent,
     LoadingViewComponent,
     GeneralBasicOcrComponent,
-    ImageToolsComponent,
+    ImageToolsComponent
   ],
-    imports: [
-        AppRoutingModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatListModule,
-        MatToolbarModule,
-        RouterModule,
-        FormsModule,
-        HttpClientModule,
-        NzGridModule,
-        MatCardModule,
-        MatButtonModule,
-        LayoutModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatGridListModule,
-        MatMenuModule,
-        MatRippleModule,
-        NzIconModule,
-        MatSnackBarModule,
-        NzModalModule,
-        MatProgressBarModule,
-        MatFormFieldModule,
-        MatInputModule,
-        NzUploadModule,
-        MatExpansionModule,
-        NzTabsModule,
-        MatTabsModule,
-        MatRadioModule,
-    ],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatToolbarModule,
+    RouterModule,
+    FormsModule,
+    HttpClientModule,
+    NzGridModule,
+    MatCardModule,
+    MatButtonModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatRippleModule,
+    NzIconModule,
+    MatSnackBarModule,
+    NzModalModule,
+    MatProgressBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NzUploadModule,
+    MatExpansionModule,
+    NzTabsModule,
+    MatTabsModule,
+    MatRadioModule,
+    MatSelectModule,
+  ],
   providers: [
     {
       provide: NZ_I18N, useValue: zh_CN

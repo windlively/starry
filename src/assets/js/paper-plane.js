@@ -187,3 +187,6 @@ const keepInView = function (item) {
     position.y = viewBounds.height
   }
 };
+
+window.onresize = () => refreshPaperPlane();
+

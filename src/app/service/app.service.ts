@@ -1,6 +1,11 @@
 import {Injectable} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Observable, Subject} from "rxjs";
+import {NzIconService} from "ng-zorro-antd";
+
+const giteeIconSvg = `
+
+`
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +16,9 @@ export class AppService {
 
   public subAppChange = new Subject();
 
-  constructor(public snackBar: MatSnackBar) {
+  constructor(public snackBar: MatSnackBar,
+              nzIconService: NzIconService) {
+
   }
 
   public appMetaInfo: AppInfo[] = [

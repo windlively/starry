@@ -52,7 +52,7 @@
         </nz-upload>
         <div *ngIf="waitingConvertFile">文件名: {{waitingConvertFile.name}}</div>
         <mat-form-field>
-          <mat-select #targetType value="image/png">
+          <mat-select #targetType value="image/png" placeholder="转换类型">
             <mat-option value="image/webp">webp格式</mat-option>
             <mat-option value="image/jpeg">jpeg格式</mat-option>
             <mat-option value="image/png">png格式</mat-option>

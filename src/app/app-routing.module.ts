@@ -4,6 +4,7 @@ import {IndexComponent} from './index/index.component';
 import {AppContextComponent} from './app-context/app-context.component';
 import {ImageRecognitionComponent} from './app-context/image-recognition/image-recognition.component';
 import {ImageToolsComponent} from "./app-context/image-tools/image-tools.component";
+import {JsonViewerComponent} from "./app-context/json-viewer/json-viewer.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
       },
       {
         path: 'image-tools', component: ImageToolsComponent
+      },
+      {
+        path: 'json-viewer', component: JsonViewerComponent
       }
     ]
   }, {

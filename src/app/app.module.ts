@@ -38,6 +38,8 @@ import {NzGridModule, NzIconModule, NzModalModule, NzTabsModule, NzUploadModule}
 import {MatRadioModule} from "@angular/material/radio";
 import { ImageToolsComponent } from './app-context/image-tools/image-tools.component';
 import {MatSelectModule} from "@angular/material/select";
+import { JsonViewerComponent } from './app-context/json-viewer/json-viewer.component';
+import {NgxJsonViewerModule} from "ngx-json-viewer";
 
 registerLocaleData(zh);
 
@@ -49,7 +51,8 @@ registerLocaleData(zh);
     ImageRecognitionComponent,
     LoadingViewComponent,
     GeneralBasicOcrComponent,
-    ImageToolsComponent
+    ImageToolsComponent,
+    JsonViewerComponent
   ],
   imports: [
     AppRoutingModule,
@@ -81,6 +84,7 @@ registerLocaleData(zh);
     MatTabsModule,
     MatRadioModule,
     MatSelectModule,
+    NgxJsonViewerModule,
   ],
   providers: [
     {

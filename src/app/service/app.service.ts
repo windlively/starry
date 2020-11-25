@@ -36,8 +36,13 @@ export class AppService {
       icon: 'tool',
       description: 'Base64转码等'
     },
-    {name: 'app1', displayName: '应用01', path: '#', icon: 'star', description: '测试应用1'},
-    {name: 'app2', displayName: '应用02', path: '#', icon: 'star', description: '测试应用1'},
+    {
+      name: 'json-viewer',
+      displayName: 'JSON预览工具',
+      path: 'json-viewer',
+      icon: 'eye',
+      description: '格式化预览JSON字符串'
+    }
     // {name: 'app3', displayName: '应用03', path: '#', icon: 'star', description: '测试应用1'},
     // {name: 'app4', displayName: '应用04', path: '#', icon: 'star', description: '测试应用1'}
   ];

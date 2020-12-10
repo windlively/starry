@@ -40,6 +40,7 @@ import { ImageToolsComponent } from './app-context/image-tools/image-tools.compo
 import {MatSelectModule} from "@angular/material/select";
 import { JsonViewerComponent } from './app-context/json-viewer/json-viewer.component';
 import {NgxJsonViewerModule} from "ngx-json-viewer";
+import { UnitConvertComponent } from './app-context/unit-convert/unit-convert.component';
 
 registerLocaleData(zh);
 
@@ -52,7 +53,8 @@ registerLocaleData(zh);
     LoadingViewComponent,
     GeneralBasicOcrComponent,
     ImageToolsComponent,
-    JsonViewerComponent
+    JsonViewerComponent,
+    UnitConvertComponent
   ],
   imports: [
     AppRoutingModule,

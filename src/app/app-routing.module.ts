@@ -5,6 +5,7 @@ import {AppContextComponent} from './app-context/app-context.component';
 import {ImageRecognitionComponent} from './app-context/image-recognition/image-recognition.component';
 import {ImageToolsComponent} from "./app-context/image-tools/image-tools.component";
 import {JsonViewerComponent} from "./app-context/json-viewer/json-viewer.component";
+import {UnitConvertComponent} from "./app-context/unit-convert/unit-convert.component";
 
 const routes: Routes = [
   {
@@ -20,6 +21,9 @@ const routes: Routes = [
       },
       {
         path: 'json-viewer', component: JsonViewerComponent
+      },
+      {
+        path: 'unit-convert', component: UnitConvertComponent
       }
     ]
   }, {

@@ -47,8 +47,15 @@ export class AppService {
       name: 'unit-convert',
       displayName: '单位转换',
       path: 'unit-convert',
-      icon: 'sync',
+      icon: 'interaction',
       description: '常用的单位转换'
+    },
+    {
+      name: 'learn-angular',
+      displayName: 'learn-angular',
+      path: 'learn-angular',
+      icon: 'bulb',
+      description: ''
     }
     // {name: 'app3', displayName: '应用03', path: '#', icon: 'star', description: '测试应用1'},
     // {name: 'app4', displayName: '应用04', path: '#', icon: 'star', description: '测试应用1'}

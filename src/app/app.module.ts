@@ -23,7 +23,7 @@ import { AppContextComponent } from './app-context/app-context.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import {AppService} from './service/app.service';
-import {MatRippleModule} from '@angular/material/core';
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { ImageRecognitionComponent } from './app-context/image-recognition/image-recognition.component';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoadingViewComponent } from './loading-view/loading-view.component';
@@ -41,6 +41,12 @@ import {MatSelectModule} from "@angular/material/select";
 import { JsonViewerComponent } from './app-context/json-viewer/json-viewer.component';
 import {NgxJsonViewerModule} from "ngx-json-viewer";
 import { UnitConvertComponent } from './app-context/unit-convert/unit-convert.component';
+import { LearnAngularComponent } from './app-context/learn-angular/learn-angular.component';
+import { MouseLogDirective } from './app-context/learn-angular/mouse-log.directive';
+import { ForOfDirective } from './app-context/learn-angular/for-of.directive';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { RatePipe } from './app-context/learn-angular/rate.pipe';
+import { StrToNumberPipe } from './app-context/learn-angular/str-to-number.pipe';
 
 registerLocaleData(zh);
 
@@ -54,7 +60,12 @@ registerLocaleData(zh);
     GeneralBasicOcrComponent,
     ImageToolsComponent,
     JsonViewerComponent,
-    UnitConvertComponent
+    UnitConvertComponent,
+    LearnAngularComponent,
+    MouseLogDirective,
+    ForOfDirective,
+    RatePipe,
+    StrToNumberPipe
   ],
   imports: [
     AppRoutingModule,
@@ -87,6 +98,8 @@ registerLocaleData(zh);
     MatRadioModule,
     MatSelectModule,
     NgxJsonViewerModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {

@@ -31,7 +31,7 @@ export class AppHttpInterceptor implements HttpInterceptor {
     setTimeout(() => this.appService.showLoadingBar = true);
     this.processingHttpCount ++;
     return next.handle(req.clone({
-      url: '/starry' + (req.url.startsWith('/') ? req.url : '/' + req.url)
+      url: `/starry${(req.url.startsWith('/') ? req.url : '/' + req.url)}`
     }))
       .pipe(
         debounceTime(1000),

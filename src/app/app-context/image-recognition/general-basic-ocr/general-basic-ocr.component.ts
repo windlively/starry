@@ -77,7 +77,7 @@ export class GeneralBasicOcrComponent implements OnInit , OnDestroy{
       // return this.httpClient.post('/starry/ocr/general-basic', formData, {reportProgress: true}).subscribe(data => {
       //   console.log(data);
       // });
-      const url = '/ocr/general-' + this.ocrType
+      const url = `/ocr/general-${this.ocrType}`
       const req = new HttpRequest('POST', url, formData, {
         reportProgress: true,
         withCredentials: true,

@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AppService} from "../../service/app.service";
-import {MatAccordion} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-learn-angular',
@@ -36,5 +35,4 @@ export class LearnAngularComponent implements OnInit, OnDestroy {
     console.log(count)
     this.ngForArray = new Array(count).fill(0, 0, count)
   }
-  datePicker: Date;
 }

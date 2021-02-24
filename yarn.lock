@@ -4935,6 +4935,13 @@ ngx-json-viewer@^2.4.0:
   resolved "https://registry.yarnpkg.com/ngx-json-viewer/-/ngx-json-viewer-2.4.0.tgz#55eab11dda36c3752285efec1579dba3fcb18163"
   integrity sha512-26QmLp+0ds90aFug3KbSIwqtmQgCcJYFNNNcmcZHgPRj75nhKzbo4ceKxkhWmY5auKZClVO0HTZSs5bBhgb1Bw==
 
+ngx-monaco-editor@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-monaco-editor/-/ngx-monaco-editor-7.0.0.tgz#3c422502def5c5ff0771a4ff518352d0215de698"
+  integrity sha512-vzPXTgeZEuRapuiANtrUjNCMdU5MmsJvQVyKgZS042VdXayAn6gPxvIVQp4ipUzX5JzVOfjkL2t+s9+ihMT5Eg==
+  dependencies:
+    tslib "^1.9.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

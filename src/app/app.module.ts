@@ -47,6 +47,8 @@ import { ForOfDirective } from './app-context/learn-angular/for-of.directive';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { RatePipe } from './app-context/learn-angular/rate.pipe';
 import { StrToNumberPipe } from './app-context/learn-angular/str-to-number.pipe';
+import { MonacoEditorComponent } from './app-context/monaco-editor/monaco-editor.component';
+import {MonacoEditorModule} from "ngx-monaco-editor";
 
 registerLocaleData(zh);
 
@@ -65,7 +67,8 @@ registerLocaleData(zh);
     MouseLogDirective,
     ForOfDirective,
     RatePipe,
-    StrToNumberPipe
+    StrToNumberPipe,
+    MonacoEditorComponent
   ],
   imports: [
     AppRoutingModule,
@@ -99,7 +102,8 @@ registerLocaleData(zh);
     MatSelectModule,
     NgxJsonViewerModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [
     {

@@ -7,6 +7,7 @@ import {ImageToolsComponent} from "./app-context/image-tools/image-tools.compone
 import {JsonViewerComponent} from "./app-context/json-viewer/json-viewer.component";
 import {UnitConvertComponent} from "./app-context/unit-convert/unit-convert.component";
 import {LearnAngularComponent} from "./app-context/learn-angular/learn-angular.component";
+import {MonacoEditorComponent} from "./app-context/monaco-editor/monaco-editor.component";
 
 const routes: Routes = [
   {
@@ -15,19 +16,25 @@ const routes: Routes = [
     path: 'app-context', component: AppContextComponent,
     children: [
       {
-        path: 'image-recognition', component: ImageRecognitionComponent
+        path: '', redirectTo: '/index', pathMatch: 'full'
       },
       {
-        path: 'image-tools', component: ImageToolsComponent
+        path: 'image-recognition', component: ImageRecognitionComponent, pathMatch: 'full'
       },
       {
-        path: 'json-viewer', component: JsonViewerComponent
+        path: 'image-tools', component: ImageToolsComponent, pathMatch: 'full'
       },
       {
-        path: 'unit-convert', component: UnitConvertComponent
+        path: 'json-viewer', component: JsonViewerComponent, pathMatch: 'full'
       },
       {
-        path: 'learn-angular', component: LearnAngularComponent
+        path: 'unit-convert', component: UnitConvertComponent, pathMatch: 'full'
+      },
+      {
+        path: 'learn-angular', component: LearnAngularComponent, pathMatch: 'full'
+      },
+      {
+        path: 'monaco-editor', component: MonacoEditorComponent, pathMatch: 'full'
       }
     ]
   }, {

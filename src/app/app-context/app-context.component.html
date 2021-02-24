@@ -8,10 +8,11 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar nz-row nzJustify="start" nzAlign="middle">
-      <a nz-icon nzType="bars" nz-col nzSpan="2" (click)="drawer.toggle()" mat-button
-         style="font-size: 24px;height: 100%;display: inline-flex;justify-content: center; align-items: center;">
+    <mat-toolbar nz-row nzJustify="start" nzAlign="middle" style="height: 60px">
+      <a nz-icon nzType="bars" (click)="drawer.toggle()" mat-button
+         style="font-size: 24px;height: 80%;display: inline-flex;justify-content: center; align-items: center;">
       </a>
+      &nbsp;&nbsp;
       <h2 nz-col nzSpan="12">{{appTitle}}</h2>
     </mat-toolbar>
     <router-outlet></router-outlet>

@@ -56,6 +56,13 @@ export class AppService {
       path: 'learn-angular',
       icon: 'bulb',
       description: ''
+    },
+    {
+      name: 'monaco-editor',
+      displayName: 'monaco编辑器',
+      path: 'monaco-editor',
+      icon: 'edit',
+      description: '在线版的VS Code编辑器'
     }
     // {name: 'app3', displayName: '应用03', path: '#', icon: 'star', description: '测试应用1'},
     // {name: 'app4', displayName: '应用04', path: '#', icon: 'star', description: '测试应用1'}

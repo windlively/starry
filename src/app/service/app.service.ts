@@ -94,3 +94,14 @@ export class AppInfo {
   public description: string;
 
 }
+
+export const saveToLocalFile = (data: string | Blob,fileName: string) => {
+  const elementA = document.createElement('a');
+  elementA.download = fileName
+  elementA.style.display = 'none';
+  const blob = new Blob([data]);
+  elementA.href = URL.createObjectURL(blob);
+  document.body.appendChild(elementA);
+  elementA.click();
+  document.body.removeChild(elementA);
+}

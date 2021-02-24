@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {AppService} from "../../service/app.service";
+import {AppService, saveToLocalFile} from "../../service/app.service";
 import IEditor = monaco.editor.IEditor;
-import IEditorOptions = monaco.editor.IEditorOptions;
 
 
 @Component({
   selector: 'app-monaco-editor',
+  styleUrls: ['./monaco-editor.component.css'],
   templateUrl: './monaco-editor.component.html',
-  styleUrls: ['./monaco-editor.component.css']
 })
 export class MonacoEditorComponent implements OnInit {
 
@@ -20,7 +19,7 @@ export class MonacoEditorComponent implements OnInit {
   currentLanguage = 'javascript';
   editor: IEditor;
   // @ts-ignore
-  options: IEditorOptions = {
+  options = {
     theme: 'vs',
     fontSize: 14,
     language: this.currentLanguage,
@@ -46,6 +45,7 @@ export class MonacoEditorComponent implements OnInit {
   }
 
   changeLanguage($event: string) {
+    // @ts-ignore
     this.options.language = $event;
     // @ts-ignore
     this.editor.updateOptions(this.options)
@@ -59,6 +59,12 @@ export class MonacoEditorComponent implements OnInit {
 
   changeFontSize($event: Event) {
     this.options.fontSize = this.fontSize
+    // @ts-ignore
     this.editor.updateOptions(this.options)
+  }
+
+  saveToFile = () => {
+    const name = `${new Date().getTime()}.${monaco.languages.getLanguages().find(s => s.id === this.currentLanguage).extensions[0]}`
+    saveToLocalFile(this.textContent, name)
   }
 }

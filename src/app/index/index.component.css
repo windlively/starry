@@ -131,8 +131,33 @@ a.link-nav {
 }
 a.registration-link{
   color: aliceblue;
+  transition: 1s ease-in-out;
 }
 
 a.registration-link:hover{
-  text-decoration: underline;
+  /*text-decoration: underline;*/
+  /*transform: scale(2);*/
+
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: aliceblue;
+}
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: aliceblue;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
